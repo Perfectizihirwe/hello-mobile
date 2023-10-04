@@ -1,47 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { Button, LargeButton } from "./src/components/Button/button";
+import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { RootNavigation } from "./src/navigation/rootNavigation";
 
-export const GG = () => {
+export default App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <View style={styles.rowContainer}>
-        <Button
-          title="Call now"
-          style={{
-            width: 200,
-            backgroundColor: "red",
-          }}
-          action={() => {
-            alert("Call me");
-          }}
-        />
-        <Button
-          style={{
-            backgroundColor: "green",
-            borderRadius: 0,
-          }}
-          action={() => {
-            alert("Find doctor");
-          }}
-        />
-      </View>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <RootNavigation />
+      </SafeAreaProvider>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 20,
-  },
-  rowContainer: {
-    flexDirection: "row",
-    gap: 10,
-  },
-});
